@@ -1838,7 +1838,7 @@ function startListeners() {
 exports.startListeners = startListeners;
 
 function removeFromKeysDown(e) {
-  KEYS_DOWN.delete(e.key.toLowerCase());
+  if (e.key) KEYS_DOWN.delete(e.key.toLowerCase());
 }
 
 function addToKeysDown(e) {
@@ -1846,7 +1846,7 @@ function addToKeysDown(e) {
   if (e.ctrlKey) KEYS_DOWN.add("control");
   if (e.altKey) KEYS_DOWN.add("alt");
   if (e.shiftKey) KEYS_DOWN.add("shift");
-  KEYS_DOWN.add(e.key.toLowerCase());
+  if (e.key) KEYS_DOWN.add(e.key.toLowerCase());
 }
 exports.addToKeysDown = addToKeysDown;
 
